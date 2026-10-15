@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+
+  --color-canvas: #d7eef8;
+  --color-canvas-deep: #c5e4f3;
+  --color-paper: #ffffff;
+  --color-mist: #f4fbfd;
+  --color-ink: #102a3c;
+  --color-muted: #3e5c70;
+  --color-line: #b7d5e4;
+  --color-lagoon: #0c6e86;
+  --color-lagoon-ink: #f3fcfe;
+  --color-clay: #c4562f;
+  --color-clay-ink: #fff7f4;
+
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background:
+      radial-gradient(900px 420px at 0% -10%, #ffffff 0%, transparent 55%),
+      radial-gradient(700px 380px at 100% 0%, #b7dff0 0%, transparent 50%),
+      var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-lagoon);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
